@@ -1,0 +1,47 @@
+/* Style for modal body */
+.modal-body {
+    padding: 20px;
+    background-color: #eff1f3;
+}
+
+/* Style for modal title */
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for details section */
+.modal-body div {
+    margin-bottom: 15px;
+}
+
+/* Style for strong tags within details */
+.modal-body strong {
+    font-weight: bold;
+    color: #555; }
+
+/* Style for buttons in the footer */
+.modal-footer {
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Style for the 'Confirm Purchase' button */
+.modal-footer .btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border-color: #007bff; /* Bootstrap primary color */
+}
+
+/* Style for the 'Close' button */
+.modal-footer .btn-secondary {
+    background-color: #6c757d; /* Bootstrap secondary color */
+    border-color: #6c757d; /* Bootstrap secondary color */
+    color: #fff; /* Text color */
+}
+
+/* Optional: Override Bootstrap's modal styles */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}

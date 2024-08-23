@@ -1,0 +1,62 @@
+@media (max-width: 900px) {}
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {}
+
+
+th {
+    background-color: #eb8c00;
+    color: white;
+    font-size: 12px;
+}
+
+th,
+td {
+    border: 1px solid #686767;
+    padding: 6px;
+    text-align: left;
+    font-size: 12px;
+    
+}
+
+
+
+.openColumn {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    word-break: break-all;
+
+}
+
+.pdf-download{
+    text-decoration: underline;
+    color: blue;
+    margin-right: 15px;
+    font-size: 12px;
+    font-family: 'Gotham-Light';
+}
+.pdf-download:hover{
+    color: rgb(7, 7, 127);
+}
+.inputBox {
+    height: 49px;
+}
+
+.icon-btn {
+    background-color: transparent !important;
+    color: black;
+    border: none;
+    /* font-size: 20px; */
+}
+
+.icon-btn:hover {
+    color: blue;
+}
+
+.details-logo:hover {
+    color: blue;
+}
+
+.pi {
+    font-size: 1.8rem !important;
+}

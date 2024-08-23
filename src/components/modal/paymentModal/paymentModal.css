@@ -1,0 +1,51 @@
+/* PaymentModal.css */
+
+#paymentmodal .modal-content {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgb(81, 81, 220);
+}
+
+#pheader .modal-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    background-color: blue;
+}
+
+#paymentform {
+    margin-top: 20px;
+}
+
+#paymentform #card {
+    margin-bottom: 15px;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.payment-logo {
+    width: 50px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    #paymentmodal .modal-content {
+        padding: 15px;
+    }
+
+    #pheader .modal-title {
+        font-size: 1.25em;
+    }
+
+    .payment-methods {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .payment-logo {
+        margin-bottom: 10px;
+    }
+}

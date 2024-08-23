@@ -1,0 +1,147 @@
+.sidebar_ul {
+    list-style: none;
+    padding-left: 10px !important;
+    background: linear-gradient(to right, #FFFFFF 50px, rgb(220, 105, 0) 50px);
+    position: fixed;
+    transition: width 0.3s ease;
+    height: 100%;
+    width: 50px;
+    overflow: auto;
+    padding-bottom: 4rem;
+    z-index: 66;
+    border-right: 1px solid #CCCCCC;
+}
+
+.sidebar_li {
+    display: flex;
+    color: black;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    max-height: 45px;
+    white-space: nowrap;
+
+}
+
+.sidebar_li a:hover {
+    color: rgb(243, 214, 86) !important;
+
+}
+
+.sidebar_li a {
+    color: white;
+    text-decoration: none !important;
+    position: relative;
+    left: -16px;
+}
+
+.sidebar_icon {
+    font-size: 30px;
+    color: black;
+}
+.sidebar_icon_two{
+    font-size: 30px !important;
+    color: black;
+    margin-left: 16px;
+
+}
+
+.svg-fill{
+    fill: #0C2340;
+    stroke: #0C2340;
+    height: 27px;
+}
+
+.sidebar_nav.active .svg-fill{
+    fill: #E87722;
+    stroke:#E87722;
+}
+
+.sidebar_nav.active .sidebar_icon {
+    color: #E87722;
+}
+.sidebar_nav.active .sidebar_icon_two {
+    color: #E87722;
+}
+
+
+.sidebar_nav.active {
+    color: #f6c104;
+}
+
+.link_tittle {
+    margin-left: 15px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+
+.side_nav_link_disable {
+    color: rgb(239, 220, 220);
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: not-allowed;
+    position: relative;
+    left: -16px;
+}
+
+/* responsive side bar */
+.res_sidebar{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    list-style: none;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 0px;
+}
+.res_li{
+    font-size: 2rem;
+}
+.res_side_disable{
+    font-size: 2rem; 
+    color: rgb(99, 98, 98);
+    cursor:not-allowed;
+}
+.res_sidebar a{
+    color: black;
+}
+.sidebar-nav{
+    display: none;
+}
+
+
+
+
+@media (max-width: 900px) {
+    .sidebar{
+        display: none;
+    }
+    .sidebar-nav{
+        display: block;
+    }
+    .res_sidebar{
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {
+  
+    .sidebar{
+        display: none;
+    }
+    .sidebar-nav{
+        display: block;
+    }
+    .res_sidebar{
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+}

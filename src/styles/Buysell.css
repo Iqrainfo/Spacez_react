@@ -1,0 +1,339 @@
+.main-div-buysell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    height: 85vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.buy-sell-container {
+    width: 40%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-top: 10px;
+    max-width: 400px;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.coin-selector,
+.quantity-container,
+.selected-info,
+.button-container {
+    margin-bottom: 20px;
+}
+
+.select-coin {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    /* border: 1px solid #ccc; */
+    transition: border-color 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.select-coin:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animated-button {
+    background-color: #246cb9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.animated-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.animated-button:active {
+    transform: scale(0.95);
+}
+
+@keyframes button-click-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.decrement-button,
+.increment-button {
+    animation: button-click-animation 0.2s ease-in-out;
+}
+
+.si-div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.iscqa {
+    font-size: 16px;
+}
+
+.buy-button,
+.sell-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.buy-button {
+    background-color: #6e51c7;
+    margin-bottom: 10px;
+    height: 7.5vh;
+}
+
+.buy-button:hover {
+    background-color: #5337a7;
+}
+
+.buy-button:active {
+    transform: scale(0.95);
+}
+
+.sell-button {
+    background-color: #f44336;
+    height: 7.5vh;
+}
+
+.sell-button:hover {
+    background-color: #d32f2f;
+}
+
+.sell-button:active {
+    transform: scale(0.95);
+}
+
+.arrow-down,
+.arrow-up {
+    margin-right: 5px;
+}
+
+/* New styles for cards */
+.cards-container1 {
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 10px;
+    /* margin-right: 190px; */
+}
+/* New styles for cards */
+.cards-container2 {
+    width: 26%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 10px;
+    /* margin-right: 190px; */
+}
+
+.invested-value-card, .bought-coins-list {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 480px;
+   
+}
+.bought-coins-list p {
+    text-align: center;
+    padding: 30px;
+}
+
+.invested-value-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.invested-value-card-wallet .values {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.value {
+    margin: 0 10px;
+    text-align: center;
+}
+.invested-value-card-wallet, .bought-coins-list {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 580px;
+   
+}
+
+
+.bought-coins-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.coin-item-enter {
+    opacity: 0.01;
+    transform: translateY(-20px);
+}
+
+.coin-item-enter.coin-item-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 500ms ease-in, transform 500ms ease-in;
+}
+
+.coin-item-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.coin-item-exit.coin-item-exit-active {
+    opacity: 0.01;
+    transform: translateY(20px);
+    transition: opacity 500ms ease-in, transform 500ms ease-in;
+}
+
+/* New styles for the bought coins list */
+.iqita {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    /* border-bottom: 1px solid #ddd; */
+    background-color: whitesmoke;
+    margin-bottom: 5px;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+}
+
+.imgcoin {
+    margin-right: 10px;
+}
+
+.iq {
+    margin-right: 5px;
+}
+
+.ic {
+    margin-right: 5px;
+}
+
+.totala {
+    margin-left: auto; /* This ensures the total amount is pushed to the far right */
+    text-align: right;
+}
+
+/* Wallet balance styles */
+.wallet-balance {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.wallet-balance h4 {
+    margin-bottom: 10px;
+}
+
+.wallet-balance p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.transaction-toggle {
+    margin-top: 20px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Transaction history styles */
+.transaction-history-container {
+    max-height: 300px; /* Adjust this value as needed */
+    overflow-y: auto;
+  
+    padding-left: 10px;
+    /* background-color: #f8f9fa; */
+    /* padding: 10px; */
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.transaction-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-item::before {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-size: 24px;
+}
+
+/* Feedback popup styles */
+.feedback-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-popup.red {
+    background-color: #dc3545;
+}

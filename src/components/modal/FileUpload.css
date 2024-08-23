@@ -1,0 +1,215 @@
+/*  UploadDoc.css */
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+
+}
+
+
+.custom-modal {
+  /* position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 500px;
+  z-index: 44; */
+
+  background: white;
+  padding: 30px;
+  position: relative;
+  /* width: 65%; */
+
+}
+
+.custom_modal_success {
+  background: white;
+  padding: 30px;
+  position: relative;
+  width: 30% ;
+
+}
+
+.modalh {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #dc6900;
+  color: black;
+}
+
+.modal-body {
+  border: 1px dashed #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  display: inline-block;
+  height: 110px;
+  width: 450px;
+  margin-top: 25px;
+  color: black;
+}
+
+.file-upload-container {
+  display: flex;
+  align-items: center;
+}
+
+.upload-icon {
+  height: 56px;
+  width: 56px;
+  margin: 10px;
+  color: #dc6900;
+  cursor: pointer;
+}
+
+
+.modalf {
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
+}
+
+.cancel-button {
+  border-color: #dc6900;
+  color: #dc6900;
+  width: 110px;
+  height: 35px;
+  background-color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+
+}
+
+.cancel-button:hover {
+  background-color: rgb(220, 215, 215);
+}
+
+.upload-button {
+  border-color: #dc6900;
+  color: white;
+  width: 110px;
+  height: 35px;
+  background-color: #dc6900;
+  cursor: pointer;
+}
+
+.upload-button:hover {
+  background-color: #8f4907;
+}
+
+.icon_section {
+  width: 30%;
+}
+
+.file_detials {
+  display: block;
+  width: 68%;
+}
+
+.file_detials label {
+  font-size: 9px;
+}
+
+.last_label {
+  margin-top: 1rem;
+  color: gray;
+  float: right;
+}
+
+.model_text_la {
+  font-size: 11px;
+}
+
+.file_name {
+  font-weight: 600;
+}
+
+.modal_body_close {
+  /* padding: 8px; */
+  display: inline-block;
+  min-height: 70px;
+  color: black;
+}
+.modal_body_close_save {
+  display: inline-block;
+  height: 55px;
+  color: black;
+}
+.close_section {
+  width: 100%;
+
+}
+
+.close_icon {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  color: orange;
+
+}
+
+.close_text {
+  font-family: 'Gotham-Book';
+  color: #dc6900;
+}
+
+.yes-button-model {
+  border-color: #dc6900;
+  color: white;
+  width: 110px;
+  height: 35px;
+  background-color: #dc6900;
+  cursor: pointer;
+}
+
+.yes-button-model:hover {
+  background-color: #8f4907;
+}
+
+.close_name {
+  margin: 10px;
+  font-family: 'Gotham-Book';
+  font-size: 12px;
+}
+
+/* Media query */
+@media (max-width: 768px) {
+  .custom-modal {
+    width: 90%;
+  }
+
+  .modalh,
+  .modal-body,
+  .file-upload-container {
+    width: 100%;
+  }
+
+  .modalf {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 45px;
+  }
+
+  .cancel-button,
+  .upload-button {
+    width: 48%;
+  }
+
+  .model_htext {
+    font-size: 12px;
+  }
+
+  .custom_modal_success {
+    width: 92%;
+  }
+}
