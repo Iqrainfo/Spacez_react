@@ -146,7 +146,7 @@ const Dashboard = () => {
       </div>
       <div className="row page_content">
         <div className="col-12 mt-2">
-          <div className="row mt-4 px-4">
+          <div className="row padding">
             {loading ? (
               <div className="loading-container">
                 <div className="loading">Loading...</div>
@@ -169,63 +169,69 @@ const Dashboard = () => {
             <div className="col-12 mt-4">
               {chartData && (
                 <div className="card chart-card">
-                  <div className="card-body">
-                    <div className="row mb-3">
-                      <div className="col-6">
-                        <select className="form-select" value={selectedCoin} onChange={handleCoinChange}>
-                          <option value="bitcoin">BTC - Bitcoin</option>
-                          <option value="ethereum">ETH - Ethereum</option>
-                          <option value="litecoin">LTC - Litecoin</option>
-                          <option value="cardano">ADA - Cardano</option>
-                          <option value="ripple">XRP - Ripple</option>
-                          <option value="bitcoin-cash">BCH - Bitcoin Cash</option>
-                          <option value="binancecoin">BNB - Binance Coin</option>
-                        </select>
-                      </div>
-                      <div className="col-6">
-                        <ButtonGroup>
-                          {['1', '7', '30', '365', 'max'].map(period => (
-                            <Button
-                              key={period}
-                              variant={selectedPeriod === period ? 'primary' : 'outline-primary'}
-                              onClick={() => handlePeriodChange(period)}
-                            >
-                              {period === '1' ? '24h' : period === '7' ? '7d' : period === '30' ? '30d' : period === '365' ? '1y' : 'All Time'}
-                            </Button>
-                          ))}
-                        </ButtonGroup>
-                      </div>
+                <div className="card-body">
+                  <div className="row mb-3">
+                    <div className="col-md-6 col-12 mb-3 mb-md-0">
+                      <select
+                        className="form-select"
+                        value={selectedCoin}
+                        onChange={handleCoinChange}
+                      >
+                        <option value="bitcoin">BTC - Bitcoin</option>
+                        <option value="ethereum">ETH - Ethereum</option>
+                        <option value="litecoin">LTC - Litecoin</option>
+                        <option value="cardano">ADA - Cardano</option>
+                        <option value="ripple">XRP - Ripple</option>
+                        <option value="bitcoin-cash">BCH - Bitcoin Cash</option>
+                        <option value="binancecoin">BNB - Binance Coin</option>
+                      </select>
                     </div>
-                    <div className="chart-container">
-                      <Line
-                        data={chartData}
-                        options={{
-                          responsive: true,
-                          maintainAspectRatio: false,
-                          scales: {
-                            x: {
-                              type: 'time',
-                              time: {
-                                unit: getTimeUnit(selectedPeriod)
-                              },
-                              title: {
-                                display: true,
-                                text: 'Date'
-                              }
-                            },
-                            y: {
-                              title: {
-                                display: true,
-                                text: 'Price (USD)'
-                              },
-                              beginAtZero: false
-                            }
-                          }
-                        }}
-                      />
+                    <div className="col-md-6 col-12">
+                      <ButtonGroup className="d-flex">
+                        {['1', '7', '30', '365', 'max'].map((period) => (
+                          <Button
+                            key={period}
+                            variant={selectedPeriod === period ? 'primary' : 'outline-primary'}
+                            onClick={() => handlePeriodChange(period)}
+                            className="flex-fill"
+                          >
+                            {period === '1' ? '24h' : period === '7' ? '7d' : period === '30' ? '30d' : period === '365' ? '1y' : 'All Time'}
+                          </Button>
+                        ))}
+                      </ButtonGroup>
                     </div>
                   </div>
+                  <div className="chart-container">
+                    <Line
+                      data={chartData}
+                      options={{
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                          x: {
+                            type: 'time',
+                            time: {
+                              unit: getTimeUnit(selectedPeriod),
+                            },
+                            title: {
+                              display: true,
+                              text: 'Date',
+                            },
+                          },
+                          y: {
+                            title: {
+                              display: true,
+                              text: 'Price (USD)',
+                            },
+                            beginAtZero: false,
+                          },
+                        },
+                      }}
+                    />
+                  </div>
                 </div>
+              </div>
+              
               )}
             </div>
           </div>

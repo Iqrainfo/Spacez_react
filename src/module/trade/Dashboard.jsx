@@ -214,7 +214,7 @@ const Trade = () => {
 
 
             <div className="cards-container2">
-                <div className="invested-value-card-wallet">
+                <div className="invested-value-card-wallet bought-coins-list2">
                     <div className="value">
                         <h5>Wallet Balance</h5>
                         <p>${walletBalance.toFixed(2)}</p>

@@ -1,3 +1,4 @@
+/* Base styles */
 .main-div-buysell {
     display: flex;
     flex-direction: row;
@@ -32,10 +33,8 @@
 .select-coin {
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
-    /* border: 1px solid #ccc; */
-    transition: border-color 0.3s ease-in-out;
     border-radius: 10px;
+    transition: border-color 0.3s ease-in-out;
 }
 
 .select-coin:focus {
@@ -152,26 +151,31 @@
     flex-direction: column;
     gap: 20px;
     padding-top: 10px;
-    /* margin-right: 190px; */
 }
-/* New styles for cards */
+
 .cards-container2 {
     width: 26%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding-top: 10px;
-    /* margin-right: 190px; */
 }
-
-.invested-value-card, .bought-coins-list {
+.bought-coins-list2 {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    max-width: 480px;
-   
+    max-width: 580px;
 }
+.invested-value-card,
+.bought-coins-list {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 580px;
+}
+
 .bought-coins-list p {
     text-align: center;
     padding: 30px;
@@ -188,48 +192,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
 }
 
 .value {
     margin: 0 10px;
     text-align: center;
-}
-.invested-value-card-wallet, .bought-coins-list {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    max-width: 580px;
-   
-}
-
-
-.bought-coins-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.coin-item-enter {
-    opacity: 0.01;
-    transform: translateY(-20px);
-}
-
-.coin-item-enter.coin-item-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 500ms ease-in, transform 500ms ease-in;
-}
-
-.coin-item-exit {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.coin-item-exit.coin-item-exit-active {
-    opacity: 0.01;
-    transform: translateY(20px);
-    transition: opacity 500ms ease-in, transform 500ms ease-in;
 }
 
 /* New styles for the bought coins list */
@@ -238,7 +205,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    /* border-bottom: 1px solid #ddd; */
     background-color: whitesmoke;
     margin-bottom: 5px;
 }
@@ -261,7 +227,7 @@
 }
 
 .totala {
-    margin-left: auto; /* This ensures the total amount is pushed to the far right */
+    margin-left: auto;
     text-align: right;
 }
 
@@ -295,14 +261,9 @@
 
 /* Transaction history styles */
 .transaction-history-container {
-    max-height: 300px; /* Adjust this value as needed */
+    max-height: 300px;
     overflow-y: auto;
-  
     padding-left: 10px;
-    /* background-color: #f8f9fa; */
-    /* padding: 10px; */
-    /* border-radius: 8px; */
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .transaction-item {
@@ -336,4 +297,77 @@
 
 .feedback-popup.red {
     background-color: #dc3545;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .main-div-buysell {
+        flex-direction: column;
+    }
+
+    .buy-sell-container,
+    .cards-container1,
+    .cards-container2 {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .buy-sell-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .quantity-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .animated-button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .buy-button,
+    .sell-button {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .cards-container1,
+    .cards-container2 {
+        width: 100%;
+    }
+
+    .transaction-history-container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-div-buysell {
+        padding: 10px;
+    }
+
+    .buy-sell-container {
+        padding: 10px;
+    }
+
+    .animated-button {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+
+    .quantity-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .feedback-popup {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+    }
 }
