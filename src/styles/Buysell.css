@@ -23,12 +23,116 @@
     justify-content: space-between;
 }
 
+
+/* Styles for the search bar */
+.search-bar-t {
+    margin-bottom: -20px;
+    /* margin-top: -30px; */
+    /* margin-left: 30px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 80%; */
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px; /* Limit the max width */
+    padding: 10px 15px; /* Adjust padding for better look */
+    border: 1px solid #ccc; /* Light border around the search input */
+    border-radius: 10px; /* Rounded corners for the search input */
+    font-size: 16px; /* Font size for readability */
+    outline: none; /* Remove the outline when focused */
+    transition: border-color 0.3s ease; /* Smooth transition for focus */
+}
+
+.search-input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); /* Add shadow effect on focus */
+}
+
+/* Optional: If you want to center the search bar vertically on smaller screens */
+@media (max-width: 768px) {
+    .search-input {
+        width: 90%; /* Make the search input take up more space on smaller screens */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.decrement-button,
+.increment-button {
+    animation: button-click-animation 0.2s ease-in-out;
+}
+
+.quantity-input {
+    width: 100%;
+    padding-top: 08px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
 .coin-selector,
-.quantity-container,
-.selected-info,
 .button-container {
     margin-bottom: 20px;
 }
+
+
+.selected-info {
+    margin-top: -20px;
+    border: 1px solid;
+    border-color: rgb(73, 71, 71);
+    border-radius: 10px;
+}
+
+
+.quantity-container {
+    margin-top: -40px;
+}
+
+
+.si-div {
+    /* display: flex; */
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.iscqa {
+    font-size: 16px;
+    margin-bottom: -5px;
+    margin-left: 80px;
+}
+
+
+.coin-div {
+    align-items: center;
+    text-align: center;
+    font: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 
+.coin-logo{
+align-items: center;
+text-align: center;
+} */
+
+
+
+
 
 .select-coin {
     width: 100%;
@@ -74,28 +178,17 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(0.9);
     }
+
     100% {
         transform: scale(1);
     }
 }
 
-.decrement-button,
-.increment-button {
-    animation: button-click-animation 0.2s ease-in-out;
-}
 
-.si-div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.iscqa {
-    font-size: 16px;
-}
 
 .buy-button,
 .sell-button {
@@ -160,6 +253,7 @@
     gap: 20px;
     padding-top: 10px;
 }
+
 .bought-coins-list2 {
     background-color: #fff;
     border-radius: 10px;
@@ -167,6 +261,7 @@
     padding: 20px;
     max-width: 580px;
 }
+
 .invested-value-card,
 .bought-coins-list {
     background-color: #fff;

@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import '../../styles/Profile.css';
+import { Sidenav, Nav, Toggle } from 'rsuite';
+import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
+import GroupIcon from '@rsuite/icons/legacy/Group';
+import MagicIcon from '@rsuite/icons/legacy/Magic';
+import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import '../../styles/Profile.css';
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  // Retrieve user from sessionStorage
+  const navigate = useNavigate();
   const storedUser = JSON.parse(sessionStorage.getItem('User'));
 
   // Initial user data
@@ -19,13 +26,13 @@ const Profile = () => {
   };
 
   // State hooks
+  const [expanded, setExpanded] = useState(true);
+  const [activeKey, setActiveKey] = useState('1');
   const [showEditModal, setShowEditModal] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [formData, setFormData] = useState(initialUserData);
   const [preview, setPreview] = useState(initialUserData.photo);
   const [userName, setUserName] = useState(initialUserData.username);
-
-  // Password visibility state
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
@@ -97,7 +104,6 @@ const Profile = () => {
       });
 
       if (response.ok) {
-        // Update session storage with the new user data
         sessionStorage.setItem('User', JSON.stringify({
           username: formData.username,
           email: formData.email,
@@ -119,23 +125,65 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-container">
-      <div className="user-profile-card">
-        <img
-          src={preview || 'https://via.placeholder.com/150'}
-          className="card-img-top img-fluid"
-          alt="User Profile"
-          style={{ objectFit: 'cover', height: '200px' }}
-          onClick={handleProfileClick}
-        />
-        <div className="user_name">
-          <p>Welcome back</p>
-          <h3>{userName}</h3>
-        </div>
-        <Button variant="primary" onClick={handleEditClick}>
-          Edit
-        </Button>
-      </div>
+    <div>
+      <Sidenav expanded={expanded} defaultOpenKeys={['3', '4']} 
+      style={{ height: '100%', width: expanded ? '220px' : '', transition: 'width 0.3s' }}>
+
+
+        <Sidenav.Body >
+          <Nav activeKey={activeKey} onSelect={(eventKey) => {
+            setActiveKey(eventKey);
+            // Handle navigation here
+            if (eventKey === '1') {
+              navigate('/home');
+            }
+            if (eventKey === '2') {
+              navigate('/trade');
+            }
+            if (eventKey === '3') {
+              navigate('/support');
+            }
+          }}>
+            <img
+              src={preview || 'https://via.placeholder.com/150'}
+              className="card-img-top img-fluid"
+              alt="User Profile"
+              style={{
+                borderRadius: '50%',
+                width: expanded ? '100px' : '40px',
+                height: expanded ? '100px' : '40px',
+                objectFit: 'cover',
+                display: 'block',
+                margin: '0 auto',
+                marginTop: '20px'
+              }}
+              onClick={handleProfileClick}
+            />
+            <div className="user_name">
+              <p>Welcome back</p>
+              <h3>{userName}</h3>
+            </div>
+
+
+            <Nav.Item eventKey="1" icon={<DashboardIcon />}>
+              Dashboard
+            </Nav.Item>
+            <Nav.Item eventKey="2" icon={<GroupIcon />}>
+              By or Sell
+
+            </Nav.Item>
+            <Nav.Item eventKey="3" icon={<GroupIcon />}>
+              Help
+            </Nav.Item>
+            {/* <Nav.Menu placement="rightStart" eventKey="3" title="Advanced" icon={<MagicIcon />}>
+              <Nav.Item eventKey="3-1">Geo</Nav.Item>
+              <Nav.Item eventKey="3-2">Devices</Nav.Item>
+            </Nav.Menu> */}
+
+          </Nav>
+        </Sidenav.Body>
+        <Sidenav.Toggle onToggle={setExpanded} />
+      </Sidenav>
 
       {/* View Profile Modal */}
       <Modal show={showProfileModal} onHide={handleCloseProfileModal}>
@@ -154,6 +202,9 @@ const Profile = () => {
             <p>Email: {formData.email || 'N/A'}</p>
             <p>Mobile: {formData.mobile_number || 'N/A'}</p>
             <p>PAN Card: {formData.pan_card || 'N/A'}</p>
+            <Button variant="primary" onClick={handleEditClick}>
+              Edit
+            </Button>
           </div>
         </Modal.Body>
       </Modal>
@@ -166,7 +217,15 @@ const Profile = () => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="photo">
-              
+              <Form.Label>Profile Photo</Form.Label>
+              <Form.Control
+                type="file"
+                name="photo"
+                onChange={handleFileChange}
+                accept="image/*"
+              />
+            </Form.Group>
+
             <Form.Group controlId="username">
               <Form.Label>Username</Form.Label>
               <Form.Control
@@ -192,7 +251,7 @@ const Profile = () => {
               <Form.Control
                 type="text"
                 name="mobile_number"
-                placeholder='+91XXXXXXXXXX'
+                placeholder="+91XXXXXXXXXX"
                 value={formData.mobile_number}
                 onChange={handleChange}
               />
@@ -202,22 +261,11 @@ const Profile = () => {
               <Form.Control
                 type="text"
                 name="pan_card"
-                placeholder='XXXXXX1234'
+                placeholder="XXXXXX1234"
                 value={formData.pan_card}
                 onChange={handleChange}
               />
             </Form.Group>
-
-            <Form.Label>Profile Photo</Form.Label>
-              <Form.Control
-                type="file"
-                name="photo"
-                onChange={handleFileChange}
-                accept="image/*" // Adjust this to '/*' to accept any file type or keep it as 'image/*' for images only
-              />
-            </Form.Group>
-
-
 
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
@@ -229,15 +277,12 @@ const Profile = () => {
                   onChange={handleChange}
                   required
                 />
-                <Button
-                  variant="link"
-                  onClick={() => setPasswordVisible(!passwordVisible)}
-                  className="password-toggle"
-                >
+                <span onClick={() => setPasswordVisible(!passwordVisible)}>
                   {passwordVisible ? <FaEyeSlash /> : <FaEye />}
-                </Button>
+                </span>
               </div>
             </Form.Group>
+
             <Form.Group controlId="confirmPassword">
               <Form.Label>Confirm Password</Form.Label>
               <div className="password-wrapper">
@@ -248,17 +293,14 @@ const Profile = () => {
                   onChange={handleChange}
                   required
                 />
-                <Button
-                  variant="link"
-                  onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
-                  className="password-toggle"
-                >
+                <span onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}>
                   {confirmPasswordVisible ? <FaEyeSlash /> : <FaEye />}
-                </Button>
+                </span>
               </div>
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Save Changes
+
+            <Button type="submit" variant="primary">
+              Update Profile
             </Button>
           </Form>
         </Modal.Body>

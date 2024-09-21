@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal'; // Assuming you have Modal component from react-bootstrap
 
 const SellModal = ({ showModal, setShowModal, confirmSell, coinDetails }) => {
-    const { coin, quantity, currentPrice } = coinDetails || {};
+    const { coin, quantity, currentPrice } = coinDetails || {}; // Destructure coinDetails, default to empty object if undefined
 
     return (
         <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -12,13 +12,13 @@ const SellModal = ({ showModal, setShowModal, confirmSell, coinDetails }) => {
             <Modal.Body>
                 {coinDetails ? (
                     <div>
-                        <p>Are you sure you want to sell <br></br>
+                        <p>Are you sure you want to sell <br />
                             <b><span style={{ color: 'red' }}>{quantity} {coin}</span></b>?
                         </p>
 
-
-                        <p><b>Current Price:</b> ${currentPrice.toFixed(2)}</p>
-                        <p><b>Total Amount:</b> ${quantity * currentPrice.toFixed(2)}</p>
+                        {/* Safe checking for currentPrice and formatting */}
+                        <p><b>Current Price:</b> {currentPrice ? `$${currentPrice.toFixed(2)}` : 'N/A'}</p>
+                        <p><b>Total Amount:</b> {currentPrice ? `$${(quantity * currentPrice).toFixed(2)}` : 'N/A'}</p>
                     </div>
                 ) : (
                     <p>Loading...</p>
